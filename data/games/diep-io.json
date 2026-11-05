@@ -1,0 +1,26 @@
+{
+  "id": "diep-io",
+  "name": "Diep.io",
+  "url": "https://diep.io",
+  "description": "Tank battles in an open arena. Join a party link to play together.",
+  "status": "live",
+  "categories": [
+    "shooters",
+    "arcade-physics"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 1,
+    "max": 50,
+    "source": "approx"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": false,
+  "openLobby": true
+}

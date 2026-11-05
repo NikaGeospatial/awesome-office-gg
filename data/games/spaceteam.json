@@ -1,0 +1,26 @@
+{
+  "id": "spaceteam",
+  "name": "Spaceteam",
+  "url": "https://sleepingbeastgames.com/projects/spaceteam/",
+  "description": "Shout instructions to fly a spaceship together. Cooperative phone game.",
+  "status": "download",
+  "categories": [
+    "co-op",
+    "party"
+  ],
+  "platforms": [
+    "phone"
+  ],
+  "players": {
+    "min": 2,
+    "max": 8,
+    "source": "approx"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": false,
+  "image": "https://sleepingbeastgames.com/img/captain.jpg"
+}

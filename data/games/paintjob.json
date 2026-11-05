@@ -1,0 +1,26 @@
+{
+  "id": "paintjob",
+  "name": "Paintjob",
+  "url": "https://foony.com/games/paintjob",
+  "description": "Free Pictionary-style draw-and-guess. Default room size is 8.",
+  "status": "live",
+  "categories": [
+    "drawing",
+    "party"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 1000,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://foony.com/img/games/paintjob/og_image.webp"
+}

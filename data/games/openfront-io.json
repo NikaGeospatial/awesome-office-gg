@@ -1,0 +1,24 @@
+{
+  "id": "openfront-io",
+  "name": "OpenFront.io",
+  "url": "https://openfront.io",
+  "description": "Real-time territory conquest: expand, ally and betray.",
+  "status": "live",
+  "categories": [
+    "strategy"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 100,
+    "source": "approx"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "partly",
+    "easy": "partly"
+  },
+  "privateRoom": true
+}

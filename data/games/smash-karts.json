@@ -1,0 +1,25 @@
+{
+  "id": "smash-karts",
+  "name": "Smash Karts",
+  "url": "https://smashkarts.io",
+  "description": "Kart racing with rocket launchers and mines. Quick rounds, no sign-up.",
+  "status": "live",
+  "categories": [
+    "sports-racing",
+    "arcade-physics"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 8,
+    "source": "approx"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true
+}

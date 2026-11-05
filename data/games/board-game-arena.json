@@ -1,0 +1,27 @@
+{
+  "id": "board-game-arena",
+  "name": "Board Game Arena",
+  "url": "https://boardgamearena.com",
+  "description": "Hundreds of board games. Free account needed; pick short ones for the hour.",
+  "status": "live",
+  "categories": [
+    "board-games",
+    "card-games",
+    "strategy"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 8,
+    "source": "approx"
+  },
+  "checks": {
+    "round": "partly",
+    "free": "partly",
+    "easy": "partly"
+  },
+  "privateRoom": true,
+  "image": "https://x.boardgamearena.net/data/themereleases/261105-0809/img/mainsite/hero-banner.png"
+}

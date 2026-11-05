@@ -1,0 +1,26 @@
+{
+  "id": "narrow-one",
+  "name": "Narrow One",
+  "url": "https://narrow.one",
+  "description": "Medieval capture the flag with bows and arrows.",
+  "status": "live",
+  "categories": [
+    "shooters",
+    "sports-racing"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 20,
+    "source": "approx"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "partly"
+  },
+  "privateRoom": false,
+  "image": "https://narrow.one/static/img/thumb.png"
+}

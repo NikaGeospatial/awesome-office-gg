@@ -1,0 +1,26 @@
+{
+  "id": "tetr-io",
+  "name": "TETR.IO",
+  "url": "https://tetr.io",
+  "description": "Online Tetris with custom rooms, up to 100+ in a lobby. Free; account only needed for ranked.",
+  "status": "live",
+  "categories": [
+    "puzzle-typing",
+    "arcade-physics"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 100,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "partly",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://tetr.io/res/tetrio_social.png"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "airconsole",
+  "name": "AirConsole",
+  "url": "https://www.airconsole.com",
+  "description": "Phones become controllers for 150+ party games on one shared screen.",
+  "status": "live",
+  "categories": [
+    "party",
+    "arcade-physics"
+  ],
+  "platforms": [
+    "browser",
+    "phone"
+  ],
+  "players": {
+    "min": 2,
+    "max": 8,
+    "source": "approx"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://www.airconsole.com/file/.ci-nikita-eng-3639-481521960816959821/og-image.jpg"
+}

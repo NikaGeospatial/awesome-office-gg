@@ -1,0 +1,25 @@
+{
+  "id": "bonk-io",
+  "name": "Bonk.io",
+  "url": "https://bonk.io",
+  "description": "Physics brawl: push opponents off the edge. Custom rooms and maps.",
+  "status": "live",
+  "categories": [
+    "arcade-physics",
+    "sports-racing"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 8,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true
+}

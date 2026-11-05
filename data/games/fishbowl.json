@@ -1,0 +1,26 @@
+{
+  "id": "fishbowl",
+  "name": "Fishbowl",
+  "url": "https://fishbowl-game.com",
+  "description": "Team charades: write words, describe, act, then one word. Great on video calls.",
+  "status": "live",
+  "categories": [
+    "party",
+    "words-trivia"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 4,
+    "max": 20,
+    "source": "approx"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "partly"
+  },
+  "privateRoom": true,
+  "image": "https://fishbowl-game.com/share-image.jpg"
+}

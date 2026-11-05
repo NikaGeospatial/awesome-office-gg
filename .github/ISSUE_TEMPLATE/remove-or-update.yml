@@ -1,0 +1,28 @@
+name: Update or remove a listing
+description: You own or represent a listed game and want it changed or taken down, or you spotted a wrong detail.
+title: "Update: "
+labels: ["listing-change"]
+body:
+  - type: input
+    id: game
+    attributes:
+      label: Which game?
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What would you like?
+      options:
+        - Correct a detail (players, signup, link…)
+        - Change or remove our artwork / logo
+        - Remove the game from the list
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What should change, and how can we confirm you represent the game (or what is your evidence)?
+    validations:
+      required: true

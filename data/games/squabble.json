@@ -1,0 +1,26 @@
+{
+  "id": "squabble",
+  "name": "Squabble",
+  "url": "https://squabble.me",
+  "description": "Wordle as a race: compete against friends or up to 99 people.",
+  "status": "live",
+  "categories": [
+    "words-trivia",
+    "puzzle-typing"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 99,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "partly",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://squabble.me/card.png"
+}

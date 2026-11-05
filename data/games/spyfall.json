@@ -1,0 +1,25 @@
+{
+  "id": "spyfall",
+  "name": "Spyfall",
+  "url": "https://spyfall.adrianocola.com",
+  "description": "Everyone knows the location except the spy. Nickname in, room code out.",
+  "status": "live",
+  "categories": [
+    "social-deduction",
+    "party"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 3,
+    "max": 8,
+    "source": "rules"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true
+}

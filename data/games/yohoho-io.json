@@ -1,0 +1,27 @@
+{
+  "id": "yohoho-io",
+  "name": "Yohoho.io",
+  "url": "https://yohoho.io",
+  "description": "Pirate-themed arena brawler.",
+  "status": "live",
+  "categories": [
+    "arcade-physics",
+    "shooters"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 1,
+    "max": 50,
+    "source": "approx"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": false,
+  "openLobby": true,
+  "image": "https://yohoho.io/img/banner1200x630.jpg"
+}

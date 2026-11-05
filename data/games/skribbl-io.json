@@ -1,0 +1,26 @@
+{
+  "id": "skribbl-io",
+  "name": "Skribbl.io",
+  "url": "https://skribbl.io",
+  "description": "Draw and guess. Nickname in, room link out. Chaos after minute twenty.",
+  "status": "live",
+  "categories": [
+    "drawing",
+    "party"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 20,
+    "source": "rules"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://skribbl.io/img/thumbnail.png"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "venge-io",
+  "name": "Venge.io",
+  "url": "https://venge.io",
+  "description": "Objective-based first-person shooter in the browser.",
+  "status": "live",
+  "categories": [
+    "shooters"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 16,
+    "source": "approx"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "partly"
+  },
+  "privateRoom": false,
+  "image": "https://venge.io/thumbnail.jpg"
+}

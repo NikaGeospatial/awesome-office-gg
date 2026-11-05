@@ -1,0 +1,26 @@
+{
+  "id": "foon-o-uno-style",
+  "name": "Foon-o (UNO-style)",
+  "url": "https://foony.com/games/foono-online-card-game",
+  "description": "UNO rules and a one-click private room. Best around 8 players; up to 100.",
+  "status": "live",
+  "categories": [
+    "card-games",
+    "party"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 100,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://foony.com/img/games/foono-online-card-game/og_image.webp"
+}

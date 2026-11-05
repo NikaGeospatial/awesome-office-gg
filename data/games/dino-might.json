@@ -1,0 +1,25 @@
+{
+  "id": "dino-might",
+  "name": "Dino-Might",
+  "url": "https://foony.com/games/dinomight",
+  "description": "Bomberman-style arena. Eight players is the sweet spot.",
+  "status": "live",
+  "categories": [
+    "arcade-physics"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 100,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://foony.com/img/games/dinomight/og_image.webp"
+}

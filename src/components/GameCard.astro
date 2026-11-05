@@ -1,0 +1,77 @@
+---
+import type { Game } from "../lib/schema";
+import { CATEGORIES, PLATFORMS, STATUSES } from "../lib/schema";
+import { CHECK_LABELS, CHECK_MARK, logoUrl, placeholderHue, playersLabel } from "../lib/format";
+
+interface Props {
+  game: Game;
+}
+const { game: g } = Astro.props;
+const checks = [g.checks.round, g.checks.free, g.checks.easy] as const;
+const approx = g.players.source === "approx";
+const closed = g.status === "closed";
+const text = [g.name, ...g.categories.map((c) => CATEGORIES[c])].join(" ").toLowerCase();
+---
+
+<article
+  class:list={["card", { closed }]}
+  data-cats={g.categories.join(" ")}
+  data-plats={g.platforms.join(" ")}
+  data-status={g.status}
+  data-min={g.players.min}
+  data-max={g.players.max}
+  data-text={text}
+>
+  <span class={`st st-${g.status}`}>{STATUSES[g.status]}</span>
+  <div class="art" style={`background:hsl(${placeholderHue(g.name)} 85% 58%)`}>
+    {
+      g.image ? (
+        <img src={g.image} alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()" />
+      ) : (
+        <div class="ph">{g.name}</div>
+      )
+    }
+    <span
+      class="pp"
+      title={approx
+        ? "Approximate: typical lobby size from third-party sources"
+        : "From the game's own site or its standard rules"}>{playersLabel(g)}</span
+    >
+  </div>
+  <div class="logo">
+    <img
+      src={logoUrl(g)}
+      alt=""
+      loading="lazy"
+      decoding="async"
+      referrerpolicy="no-referrer"
+      data-l={g.name[0]}
+      onerror="this.parentNode.textContent=this.dataset.l"
+    />
+  </div>
+  <div class="in">
+    <h3>{g.name}</h3>
+    <div class="tags">{g.categories.map((c) => <span>{CATEGORIES[c]}</span>)}</div>
+    <div class="plat">{g.platforms.map((p) => PLATFORMS[p]).join(" · ")}</div>
+    <div class="chk" aria-label="Criteria: round under an hour, free, easy to learn">
+      {
+        checks.map((v, i) => (
+          <i class={v}>
+            {CHECK_LABELS[i]} {CHECK_MARK[v]}
+          </i>
+        ))
+      }
+      {g.privateRoom && <i class="rm">Private room</i>}
+    </div>
+    <p>{g.description}</p>
+    {
+      closed ? (
+        <span class="go off">Gone, but not forgotten</span>
+      ) : (
+        <a class="go" href={g.url} target="_blank" rel="noopener noreferrer">
+          Play →
+        </a>
+      )
+    }
+  </div>
+</article>

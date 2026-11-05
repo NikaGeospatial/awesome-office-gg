@@ -1,0 +1,26 @@
+{
+  "id": "popaword",
+  "name": "Popaword",
+  "url": "https://foony.com/games/popaword",
+  "description": "Race to build words from the same 5–7 letter pool. Soft cap 8.",
+  "status": "live",
+  "categories": [
+    "words-trivia",
+    "puzzle-typing"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 1000,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://foony.com/img/games/popaword/og_image.webp"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "awesome-office-gg",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A curated list of free online games a team can play in one hour.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "validate": "tsx scripts/validate.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check": "npm run validate && npm run typecheck && npm test && npm run build",
+    "check:links": "tsx scripts/check-links.ts",
+    "schema": "tsx scripts/gen-schema.ts"
+  },
+  "dependencies": {
+    "astro": "6.4.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vitest": "5.1.0",
+    "zod": "4.6.7"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "kahoot",
+  "name": "Kahoot!",
+  "url": "https://kahoot.it",
+  "description": "Live quiz: players join with a PIN and nickname. Free host accounts cap at about 10 players.",
+  "status": "live",
+  "categories": [
+    "words-trivia",
+    "party"
+  ],
+  "platforms": [
+    "browser",
+    "phone"
+  ],
+  "players": {
+    "min": 2,
+    "max": 10,
+    "source": "approx"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "partly",
+    "easy": "yes"
+  },
+  "privateRoom": true
+}

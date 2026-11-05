@@ -1,0 +1,26 @@
+{
+  "id": "foonopoly",
+  "name": "Foonopoly",
+  "url": "https://foony.com/games/foonopoly",
+  "description": "Monopoly-style board game from a single invite link.",
+  "status": "live",
+  "categories": [
+    "board-games",
+    "strategy"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 4,
+    "source": "site"
+  },
+  "checks": {
+    "round": "partly",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://foony.com/img/games/foonopoly/og_image.webp"
+}

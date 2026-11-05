@@ -1,0 +1,26 @@
+{
+  "id": "carrom",
+  "name": "Carrom",
+  "url": "https://foony.com/games/carrom",
+  "description": "Flick-to-pocket board game; extra players join teams.",
+  "status": "live",
+  "categories": [
+    "sports-racing",
+    "board-games"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 100,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://foony.com/img/games/carrom/og_image.webp"
+}

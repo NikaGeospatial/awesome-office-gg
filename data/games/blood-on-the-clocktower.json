@@ -1,0 +1,26 @@
+{
+  "id": "blood-on-the-clocktower",
+  "name": "Blood on the Clocktower",
+  "url": "https://clocktower.online",
+  "description": "Brilliant social-deduction epic, but sessions run hours and need a storyteller.",
+  "status": "live",
+  "categories": [
+    "social-deduction"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 5,
+    "max": 20,
+    "source": "rules"
+  },
+  "checks": {
+    "round": "no",
+    "free": "no",
+    "easy": "no"
+  },
+  "privateRoom": true,
+  "hallOfFame": true,
+  "image": "https://bra1n.github.io/townsquare/static/apple-icon.png"
+}

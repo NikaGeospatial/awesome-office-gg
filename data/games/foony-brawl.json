@@ -1,0 +1,25 @@
+{
+  "id": "foony-brawl",
+  "name": "Foony Brawl",
+  "url": "https://foony.com/games/platform-fighter",
+  "description": "Smash-Bros-style brawler that runs in a tab.",
+  "status": "live",
+  "categories": [
+    "arcade-physics"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 50,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://foony.com/img/games/platform-fighter/og_image.webp"
+}

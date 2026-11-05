@@ -1,0 +1,27 @@
+{
+  "id": "jackbox-games",
+  "name": "Jackbox Games",
+  "url": "https://www.jackboxgames.com",
+  "description": "Players join free from their phones, but one person has to buy the pack.",
+  "status": "download",
+  "categories": [
+    "party",
+    "words-trivia"
+  ],
+  "platforms": [
+    "browser",
+    "phone"
+  ],
+  "players": {
+    "min": 1,
+    "max": 8,
+    "source": "rules"
+  },
+  "checks": {
+    "round": "no",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "hallOfFame": true
+}

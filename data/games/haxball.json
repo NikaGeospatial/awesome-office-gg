@@ -1,0 +1,25 @@
+{
+  "id": "haxball",
+  "name": "HaxBall",
+  "url": "https://www.haxball.com",
+  "description": "Top-down physics soccer. Host a room, pick teams, play 3v3 or 4v4.",
+  "status": "live",
+  "categories": [
+    "sports-racing",
+    "arcade-physics"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 30,
+    "source": "approx"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "partly"
+  },
+  "privateRoom": true
+}

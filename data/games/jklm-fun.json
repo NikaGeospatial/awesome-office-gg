@@ -1,0 +1,26 @@
+{
+  "id": "jklm-fun",
+  "name": "JKLM.fun",
+  "url": "https://jklm.fun",
+  "description": "BombParty and PopSauce word games. Pick a nickname, share the room.",
+  "status": "live",
+  "categories": [
+    "words-trivia",
+    "party"
+  ],
+  "platforms": [
+    "browser",
+    "phone"
+  ],
+  "players": {
+    "min": 2,
+    "max": 20,
+    "source": "approx"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true
+}

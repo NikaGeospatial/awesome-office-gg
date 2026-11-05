@@ -1,0 +1,25 @@
+{
+  "id": "krunker-io",
+  "name": "Krunker.io",
+  "url": "https://krunker.io",
+  "description": "Fast, blocky browser FPS with private custom games.",
+  "status": "live",
+  "categories": [
+    "shooters"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 20,
+    "source": "approx"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "partly"
+  },
+  "privateRoom": true,
+  "image": "https://assets.krunker.io/promo/og_1200x630.jpg"
+}

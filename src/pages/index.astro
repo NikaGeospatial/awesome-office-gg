@@ -1,0 +1,176 @@
+---
+import GameCard from "../components/GameCard.astro";
+import { loadGames } from "../lib/games";
+import { CATEGORIES, PLATFORMS, STATUSES } from "../lib/schema";
+import { REPO, REPO_URL, SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE } from "../lib/site";
+import { suggestIssueUrl } from "../lib/format";
+import "../styles/global.css";
+
+const games = loadGames();
+const main = games.filter((g) => !g.hallOfFame);
+const hof = games.filter((g) => g.hallOfFame);
+const biggest = Math.max(...games.map((g) => g.players.max));
+const usedStatuses = (Object.keys(STATUSES) as (keyof typeof STATUSES)[]).filter((s) => games.some((g) => g.status === s));
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const canonical = new URL(base + "/", Astro.site).toString();
+const sample = `data/games/bonk-io.json
+{ "id": "bonk-io",
+  "name": "Bonk.io",
+  "url": "https://bonk.io",
+  "status": "live",
+  "categories": ["arcade-physics"],
+  "platforms": ["browser"],
+  "players": { "min": 2, "max": 8,
+               "source": "site" },
+  "checks": { "round": "yes",
+    "free": "yes", "easy": "yes" },
+  "privateRoom": true }`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{SITE_NAME} · {SITE_TAGLINE}</title>
+    <meta name="description" content={SITE_DESCRIPTION} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <meta property="og:title" content={`${SITE_NAME} · ${SITE_TAGLINE}`} />
+    <meta property="og:description" content={SITE_DESCRIPTION} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="site">
+      <header class="top">
+        <div class="brand"><i>GG</i> {SITE_NAME}</div>
+        <a class="gh" href={REPO_URL}>GitHub ↗</a>
+      </header>
+
+      <div class="hero">
+        <span class="tag">Free · instant · zero homework</span>
+        <h1>Games your team can play in <mark>one hour.</mark></h1>
+        <p class="l">A hand-picked list of online games for office game hours. Open a link, share the room, start playing.</p>
+        <a class="btn red" href="#games">Pick a game</a> &nbsp; <a class="btn" href="#suggest">Suggest one</a>
+        <p class="mono stat">
+          <b>{games.length}</b> games · <b>{main.length}</b> on the main list · fits teams of <b>2 to {biggest.toLocaleString("en-US")}</b>
+        </p>
+      </div>
+
+      <div class="ticker" aria-hidden="true">
+        <div>
+          {[0, 1].map(() => games.map((g) => <Fragment><span>{g.name}</span><b>★</b></Fragment>))}
+        </div>
+      </div>
+
+      <section id="rules">
+        <h2>What makes the list</h2>
+        <p class="sub">Every game has to pass four checks. Fail one and it goes to the Hall of Fame, not the main list.</p>
+        <div class="rules">
+          <div class="rule"><b>≤ 1h</b><span>One full round</span><small>A complete game fits inside the hour, with time left to swap.</small></div>
+          <div class="rule"><b>$0</b><span>Free, fast signup</span><small>No payment. No account, or at most a nickname.</small></div>
+          <div class="rule"><b>2 min</b><span>Easy to learn</span><small>Rules explained in a sentence or two. No tutorials.</small></div>
+          <div class="rule"><b>Tap</b><span>Browser or phone</span><small>Runs in a tab or a phone app. Nothing heavy to install.</small></div>
+        </div>
+      </section>
+
+      <section id="games">
+        <h2>The games</h2>
+        <p class="sub">Check marks: ✓ passes · ~ partly · ✗ doesn't. Player counts marked ≈ are approximate.</p>
+        <div class="panel">
+          <div class="row">
+            <input class="search" id="q" type="search" placeholder="Search games…" aria-label="Search games" />
+            <label class="mono small">Team size <input class="num" id="n" type="number" min="1" placeholder="e.g. 9" /></label>
+          </div>
+          <div class="seg" role="group" aria-label="Genre">
+            <em>Genre:</em>
+            <button class="pillb" type="button" data-group="cat" data-value="all" aria-pressed="true">All</button>
+            {Object.entries(CATEGORIES).map(([id, label]) => <button class="pillb" type="button" data-group="cat" data-value={id} aria-pressed="false">{label}</button>)}
+          </div>
+          <div class="row">
+            <div class="seg" role="group" aria-label="Platform">
+              <em>Where:</em>
+              <button class="pillb" type="button" data-group="plat" data-value="all" aria-pressed="true">All</button>
+              {Object.entries(PLATFORMS).map(([id, label]) => <button class="pillb" type="button" data-group="plat" data-value={id} aria-pressed="false">{label}</button>)}
+            </div>
+            <div class="seg" role="group" aria-label="Status">
+              <em>Status:</em>
+              <button class="pillb" type="button" data-group="status" data-value="all" aria-pressed="true">All</button>
+              {usedStatuses.map((s) => <button class="pillb" type="button" data-group="status" data-value={s} aria-pressed="false">{STATUSES[s]}</button>)}
+            </div>
+          </div>
+        </div>
+        <p class="count" id="count" aria-live="polite">{main.length} games</p>
+        <div class="grid" id="grid">
+          {main.map((g) => <GameCard game={g} />)}
+        </div>
+        {
+          hof.length > 0 && (
+            <div id="hof">
+              <div class="cat"><h3>★ Hall of Fame</h3><hr /></div>
+              <p class="hofnote">Played and loved, but each bends at least one rule above. Fine for a special session, not for a quick hour.</p>
+              <div class="grid">{hof.map((g) => <GameCard game={g} />)}</div>
+            </div>
+          )
+        }
+        <div class="empty" id="empty" hidden><b>Nothing matches.</b> <a href="#suggest">Suggest it →</a></div>
+      </section>
+
+      <section>
+        <h2>Up next?</h2>
+        <p class="sub">Not tried yet, but on the list.</p>
+        <div class="notes">
+          <div class="note"><b>Telephone &amp; party hubs</b>More room-code games where everyone joins from a phone.</div>
+          <div class="note"><b>Geography &amp; trivia battles</b>GeoGuessr-style and quiz games for big teams.</div>
+          <div class="note"><b>Switch-style minigames</b>Mario-Party energy with no console. Know one?</div>
+        </div>
+      </section>
+
+      <section id="suggest">
+        <div class="sg">
+          <div class="ticket">
+            <h2 class="h2s">Got a game for us?</h2>
+            <p class="sub">Tick the boxes it passes, then we'll open a prefilled GitHub issue.</p>
+            <form onsubmit="return false">
+              <input type="text" id="sg-name" placeholder="Game name" aria-label="Game name" />
+              <input type="url" id="sg-url" placeholder="Link (https://…)" aria-label="Link" />
+              <input type="text" id="sg-players" placeholder="How many players? (e.g. 2–10)" aria-label="How many players" />
+              <div class="ck">
+                <label><input class="sg-check" type="checkbox" /> A round finishes in under an hour</label>
+                <label><input class="sg-check" type="checkbox" /> Free, no account (or just a nickname)</label>
+                <label><input class="sg-check" type="checkbox" /> Rules take two minutes to explain</label>
+                <label><input class="sg-check" type="checkbox" /> Runs in a browser or a phone app</label>
+              </div>
+              <a class="btn red" id="sg-link" data-repo={REPO} href={suggestIssueUrl(REPO, {})} target="_blank" rel="noopener noreferrer">Open GitHub issue ↗</a>
+            </form>
+          </div>
+          <div class="dark">
+            <h3>Edited by humans &amp; AI</h3>
+            <p>
+              Every game is one small JSON file in <code class="inl">data/games/</code>. Add one by opening a PR, or ask your agent to. A weekly
+              check flags dead links. Read the <a href={`${REPO_URL}/blob/main/CONTRIBUTING.md`}>contributing guide</a>.
+            </p>
+            <pre><code set:text={sample}></code></pre>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <span>{SITE_NAME} · open source · <a href={REPO_URL}>{REPO}</a></span>
+        <span>Logos and artwork belong to their owners. Not affiliated with any listed game. Owner of a listed game and want it changed or removed? <a href={`${REPO_URL}/issues/new?template=remove-or-update.yml`}>Tell us</a>.</span>
+      </footer>
+    </div>
+    <noscript><p class="noscript">Filters need JavaScript. The full list is shown above.</p></noscript>
+    <script>
+      import "../scripts/filters.ts";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "id": "among-us",
+  "name": "Among Us",
+  "url": "https://apps.apple.com/app/id1351168404",
+  "description": "Find the impostor before the ship is sabotaged. Free on phones; private lobbies need no account.",
+  "status": "download",
+  "categories": [
+    "social-deduction",
+    "party"
+  ],
+  "platforms": [
+    "phone"
+  ],
+  "players": {
+    "min": 4,
+    "max": 15,
+    "source": "rules"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://cdn.akamai.steamstatic.com/steam/apps/945360/header.jpg",
+  "logo": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7c/63/39/7c6339b6-8c2f-02a6-6c8f-b8e6d6a71660/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"
+}

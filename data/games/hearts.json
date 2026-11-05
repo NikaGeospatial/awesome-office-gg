@@ -1,0 +1,25 @@
+{
+  "id": "hearts",
+  "name": "Hearts",
+  "url": "https://foony.com/games/hearts",
+  "description": "The classic trick-avoiding card game. Free, no signup.",
+  "status": "live",
+  "categories": [
+    "card-games"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 3,
+    "max": 6,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "partly"
+  },
+  "privateRoom": true,
+  "image": "https://foony.com/img/games/hearts/og_image.webp"
+}

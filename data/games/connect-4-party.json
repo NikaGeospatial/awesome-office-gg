@@ -1,0 +1,26 @@
+{
+  "id": "connect-4-party",
+  "name": "Connect 4 · Party",
+  "url": "https://foony.com/games/4-in-a-row-connect",
+  "description": "Four in a row, plus a 'Host vs Everyone Else' mode for big groups.",
+  "status": "live",
+  "categories": [
+    "board-games",
+    "party"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 1000,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://foony.com/img/games/4-in-a-row-connect/og_image.webp"
+}

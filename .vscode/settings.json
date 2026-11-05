@@ -1,0 +1,9 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["/data/games/*.json"],
+      "url": "./data/games.schema.json"
+    }
+  ],
+  "editor.formatOnSave": false
+}

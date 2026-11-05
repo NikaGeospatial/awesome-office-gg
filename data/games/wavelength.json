@@ -1,0 +1,26 @@
+{
+  "id": "wavelength",
+  "name": "Wavelength",
+  "url": "https://www.wavelength.zone",
+  "description": "Give clues on a spectrum and read your team's minds. Free on iOS and Android.",
+  "status": "download",
+  "categories": [
+    "party",
+    "words-trivia"
+  ],
+  "platforms": [
+    "phone"
+  ],
+  "players": {
+    "min": 2,
+    "max": 10,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": false,
+  "image": "https://dk602awafi6n5.cloudfront.net/assets/wavelength-social.png"
+}

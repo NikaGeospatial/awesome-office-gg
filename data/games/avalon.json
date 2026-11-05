@@ -1,0 +1,27 @@
+{
+  "id": "avalon",
+  "name": "Avalon",
+  "url": "https://avalon-game.com",
+  "description": "Hidden-role quests and betrayal, played with role cards. Free, ad-free, no registration.",
+  "status": "live",
+  "categories": [
+    "social-deduction",
+    "card-games",
+    "board-games"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 5,
+    "max": 10,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "partly",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://avalon-game.com/img/merlin.cb9066db94d4652c.webp"
+}

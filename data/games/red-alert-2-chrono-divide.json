@@ -1,0 +1,26 @@
+{
+  "id": "red-alert-2-chrono-divide",
+  "name": "Red Alert 2 · Chrono Divide",
+  "url": "https://chronodivide.com",
+  "description": "Fan-made RA2 in the browser. Matches run long and the learning curve is steep.",
+  "status": "beta",
+  "categories": [
+    "strategy"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 8,
+    "source": "rules"
+  },
+  "checks": {
+    "round": "no",
+    "free": "partly",
+    "easy": "no"
+  },
+  "privateRoom": true,
+  "hallOfFame": true,
+  "image": "https://chronodivide.com/img/og-image.jpg"
+}

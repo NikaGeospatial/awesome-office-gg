@@ -1,0 +1,25 @@
+{
+  "id": "ludo",
+  "name": "Ludo",
+  "url": "https://foony.com/games/ludo",
+  "description": "Race four pawns home. Free, friends or computer.",
+  "status": "live",
+  "categories": [
+    "board-games"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 6,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://foony.com/img/games/ludo/og_image.webp"
+}

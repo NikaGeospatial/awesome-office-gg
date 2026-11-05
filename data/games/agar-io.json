@@ -1,0 +1,26 @@
+{
+  "id": "agar-io",
+  "name": "Agar.io",
+  "url": "https://agar.io",
+  "description": "Eat smaller cells, avoid bigger ones. Party mode lets a team share a server.",
+  "status": "live",
+  "categories": [
+    "arcade-physics"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 1,
+    "max": 100,
+    "source": "approx"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": false,
+  "openLobby": true,
+  "image": "https://agar.io/img/1200x630.png"
+}

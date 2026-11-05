@@ -1,0 +1,46 @@
+name: Suggest a game
+description: Tell us about a game our team (or yours) should play.
+title: "Suggest: "
+labels: ["game-suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! A maintainer or an agent will turn this into a pull request. Please read the
+        [criteria](https://github.com/NikaGeospatial/awesome-office-gg/blob/main/CONTRIBUTING.md#the-criteria) first.
+        Prefer to do it yourself? Add `data/games/<id>.json` in a PR.
+  - type: input
+    id: game-name
+    attributes:
+      label: Game name
+    validations:
+      required: true
+  - type: input
+    id: game-url
+    attributes:
+      label: Link where a group can start playing
+      description: The real page, no link shorteners or tracking parameters.
+      placeholder: https://
+    validations:
+      required: true
+  - type: input
+    id: players
+    attributes:
+      label: How many players?
+      description: Min–max, and where you saw it (the game's site, its rules, a guess).
+      placeholder: "2–10, stated on the site"
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: I've tried it, and it passes (tick what's true)
+      options:
+        - label: A full round finishes in under an hour
+        - label: Free, and no account (or just a nickname) is needed
+        - label: Rules can be explained in about two minutes
+        - label: Runs in a browser or a phone app (nothing heavy to install)
+        - label: A group can share a private room, lobby, code or link
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: How did you start a group game? Anything unusual (ads, signup prompts, bot checks)? Why would a team enjoy it?

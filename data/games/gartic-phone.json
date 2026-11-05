@@ -1,0 +1,25 @@
+{
+  "id": "gartic-phone",
+  "name": "Gartic Phone",
+  "url": "https://garticphone.com",
+  "description": "The telephone game with sketches: write, draw, guess, laugh. Share a link; no account.",
+  "status": "live",
+  "categories": [
+    "drawing",
+    "party"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 4,
+    "max": 30,
+    "source": "approx"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true
+}

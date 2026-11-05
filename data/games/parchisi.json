@@ -1,0 +1,25 @@
+{
+  "id": "parchisi",
+  "name": "Parchisi",
+  "url": "https://foony.com/games/parchisi",
+  "description": "Two-dice Pachisi; bigger boards for 5–6 players.",
+  "status": "live",
+  "categories": [
+    "board-games"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 6,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://foony.com/img/games/ludo/parchisi_og_image.webp"
+}

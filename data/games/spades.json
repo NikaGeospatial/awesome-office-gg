@@ -1,0 +1,25 @@
+{
+  "id": "spades",
+  "name": "Spades",
+  "url": "https://foony.com/games/spades",
+  "description": "Partnership or cutthroat spades. Free, no signup.",
+  "status": "live",
+  "categories": [
+    "card-games"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 6,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "partly"
+  },
+  "privateRoom": true,
+  "image": "https://foony.com/img/games/spades/og_image.webp"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "poker-now-texas-hold-em",
+  "name": "Poker Now · Texas Hold'em",
+  "url": "https://www.pokernow.com",
+  "description": "Texas Hold'em with friends at a private table. Play money, no download, no registration.",
+  "status": "live",
+  "categories": [
+    "card-games"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 10,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "partly"
+  },
+  "privateRoom": true,
+  "image": "https://cdn.pokernow.com/banner-og-77f9bdbac309c612a28d-20547581d602.png"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "cs-1-6-in-browser",
+  "name": "CS 1.6 in browser",
+  "url": "https://play-cs.com",
+  "description": "Counter-Strike 1.6 in a tab via a fan-run client. Unofficial.",
+  "status": "live",
+  "categories": [
+    "shooters"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 32,
+    "source": "approx"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "partly",
+    "easy": "partly"
+  },
+  "privateRoom": false,
+  "image": "https://cdn.akamai.steamstatic.com/steam/apps/10/header.jpg"
+}

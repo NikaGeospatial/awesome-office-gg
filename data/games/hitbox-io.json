@@ -1,0 +1,24 @@
+{
+  "id": "hitbox-io",
+  "name": "Hitbox.io",
+  "url": "https://hitbox.io",
+  "description": "Another multiplayer game from the Bonk.io developer.",
+  "status": "live",
+  "categories": [
+    "arcade-physics"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 8,
+    "source": "approx"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true
+}

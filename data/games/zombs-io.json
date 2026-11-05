@@ -1,0 +1,25 @@
+{
+  "id": "zombs-io",
+  "name": "ZOMBS.io",
+  "url": "https://zombs.io",
+  "description": "Co-op base building and tower defence against zombies.",
+  "status": "live",
+  "categories": [
+    "co-op",
+    "strategy"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 1,
+    "max": 4,
+    "source": "approx"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "partly",
+    "easy": "yes"
+  },
+  "privateRoom": true
+}

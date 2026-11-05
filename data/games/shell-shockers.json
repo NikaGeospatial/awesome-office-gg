@@ -1,0 +1,25 @@
+{
+  "id": "shell-shockers",
+  "name": "Shell Shockers",
+  "url": "https://shellshock.io",
+  "description": "Egg-themed FPS; host a private game with an invite code.",
+  "status": "live",
+  "categories": [
+    "shooters"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 3,
+    "max": 12,
+    "source": "approx"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://www.shellshock.io/img/previewImage_shellShockers.webp"
+}

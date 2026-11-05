@@ -1,0 +1,25 @@
+{
+  "id": "zombs-royale",
+  "name": "Zombs Royale",
+  "url": "https://zombsroyale.io",
+  "description": "100-player 2D battle royale. Squad up with your team.",
+  "status": "live",
+  "categories": [
+    "shooters",
+    "co-op"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 1,
+    "max": 100,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true
+}

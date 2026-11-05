@@ -1,0 +1,27 @@
+{
+  "id": "codenames",
+  "name": "Codenames",
+  "url": "https://www.codenamesgame.com/play-online",
+  "description": "Two spymasters, one board of words. Official free browser version, no accounts.",
+  "status": "live",
+  "categories": [
+    "words-trivia",
+    "party",
+    "board-games"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 4,
+    "max": 64,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://cdn.prod.website-files.com/6842a3f0bd06c7a0b7e03584/6880e01eeec4d58a313123e3_og-image-play-online-v2.avif"
+}

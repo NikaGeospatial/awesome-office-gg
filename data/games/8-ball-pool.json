@@ -1,0 +1,25 @@
+{
+  "id": "8-ball-pool",
+  "name": "8-Ball Pool",
+  "url": "https://foony.com/games/8-ball-pool-online-billiards",
+  "description": "Billiards in a browser; bigger rooms split into two teams.",
+  "status": "live",
+  "categories": [
+    "sports-racing"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 100,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://foony.com/img/games/8-ball-pool-online-billiards/og_image.webp"
+}

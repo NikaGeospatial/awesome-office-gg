@@ -1,0 +1,162 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "maxLength": 48,
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40
+    },
+    "url": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 140
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "live",
+        "beta",
+        "download",
+        "closed"
+      ]
+    },
+    "categories": {
+      "minItems": 1,
+      "maxItems": 3,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "social-deduction",
+          "card-games",
+          "board-games",
+          "party",
+          "drawing",
+          "words-trivia",
+          "shooters",
+          "arcade-physics",
+          "strategy",
+          "sports-racing",
+          "co-op",
+          "puzzle-typing"
+        ]
+      }
+    },
+    "platforms": {
+      "minItems": 1,
+      "maxItems": 3,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "browser",
+          "phone",
+          "desktop"
+        ]
+      }
+    },
+    "players": {
+      "type": "object",
+      "properties": {
+        "min": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "max": {
+          "type": "integer",
+          "minimum": -9007199254740991,
+          "maximum": 100000
+        },
+        "source": {
+          "type": "string",
+          "enum": [
+            "site",
+            "rules",
+            "approx"
+          ]
+        }
+      },
+      "required": [
+        "min",
+        "max",
+        "source"
+      ],
+      "additionalProperties": false
+    },
+    "checks": {
+      "type": "object",
+      "properties": {
+        "round": {
+          "type": "string",
+          "enum": [
+            "yes",
+            "partly",
+            "no"
+          ]
+        },
+        "free": {
+          "type": "string",
+          "enum": [
+            "yes",
+            "partly",
+            "no"
+          ]
+        },
+        "easy": {
+          "type": "string",
+          "enum": [
+            "yes",
+            "partly",
+            "no"
+          ]
+        }
+      },
+      "required": [
+        "round",
+        "free",
+        "easy"
+      ],
+      "additionalProperties": false
+    },
+    "privateRoom": {
+      "type": "boolean"
+    },
+    "openLobby": {
+      "type": "boolean"
+    },
+    "hallOfFame": {
+      "type": "boolean"
+    },
+    "image": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "url",
+    "description",
+    "status",
+    "categories",
+    "platforms",
+    "players",
+    "checks",
+    "privateRoom"
+  ],
+  "additionalProperties": false,
+  "title": "awesome-office-gg game",
+  "description": "One file per game in data/games/<id>.json. See CONTRIBUTING.md for what each field means and the criteria. Extra rule enforced by `npm run validate`: a game that has any \"no\" check, or is desktop-only, must set \"hallOfFame\": true, and vice versa."
+}

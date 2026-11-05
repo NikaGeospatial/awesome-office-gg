@@ -1,0 +1,25 @@
+{
+  "id": "colonist-io",
+  "name": "Colonist.io",
+  "url": "https://colonist.io",
+  "description": "Free Catan-style game with private lobbies. Runs long: save it for a double session.",
+  "status": "live",
+  "categories": [
+    "board-games",
+    "strategy"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 4,
+    "source": "rules"
+  },
+  "checks": {
+    "round": "partly",
+    "free": "partly",
+    "easy": "partly"
+  },
+  "privateRoom": true
+}

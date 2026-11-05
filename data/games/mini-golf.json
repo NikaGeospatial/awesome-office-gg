@@ -1,0 +1,26 @@
+{
+  "id": "mini-golf",
+  "name": "Mini Golf",
+  "url": "https://foony.com/games/mini-golf",
+  "description": "Everyone plays the same hole at once on icy courses.",
+  "status": "live",
+  "categories": [
+    "sports-racing",
+    "party"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 1,
+    "max": 100,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://foony.com/img/games/mini-golf/og_image.webp"
+}

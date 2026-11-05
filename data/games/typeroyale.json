@@ -1,0 +1,25 @@
+{
+  "id": "typeroyale",
+  "name": "TypeRoyale",
+  "url": "https://foony.com/games/typeroyale",
+  "description": "Typing race for up to 100 players. Default room: 10.",
+  "status": "live",
+  "categories": [
+    "puzzle-typing"
+  ],
+  "platforms": [
+    "browser"
+  ],
+  "players": {
+    "min": 2,
+    "max": 100,
+    "source": "site"
+  },
+  "checks": {
+    "round": "yes",
+    "free": "yes",
+    "easy": "yes"
+  },
+  "privateRoom": true,
+  "image": "https://foony.com/img/games/typeroyale/og_image.webp"
+}
