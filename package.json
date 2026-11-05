@@ -21,7 +21,7 @@
     "readme": "tsx scripts/gen-readme.ts"
   },
   "dependencies": {
-    "astro": "6.4.8"
+    "astro": "7.4.5"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
