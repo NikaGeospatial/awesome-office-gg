@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 236" width="1200" height="236" role="img" aria-labelledby="hof-t hof-d">
+<title id="hof-t">Hall of Fame</title>
+<desc id="hof-d">Games that bend a rule: Blood on the Clocktower, Jackbox Games, osu!, Red Alert 2 · Chrono Divide.</desc>
+<defs>
+<pattern id="hof-dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#15121a" opacity=".14"/></pattern>
+<clipPath id="hof-clip"><rect x="4" y="4" width="1188" height="224"/></clipPath>
+</defs>
+<style>
+.hof text{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif}
+.hof .b{font-family:'Arial Black','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:900}
+.hof .m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+
+.hof .tw1{animation:htw 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.hof .tw2{animation:htw 2.4s ease-in-out -.8s infinite;transform-box:fill-box;transform-origin:center}
+.hof .tw3{animation:htw 2.4s ease-in-out -1.6s infinite;transform-box:fill-box;transform-origin:center}
+.hof .cup{animation:hcup 3.6s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom center}
+.hof .n0{animation:hpop 3.6s ease-in-out 0.0s infinite;transform-box:fill-box;transform-origin:center}
+.hof .n1{animation:hpop 3.6s ease-in-out 0.3s infinite;transform-box:fill-box;transform-origin:center}
+.hof .n2{animation:hpop 3.6s ease-in-out 0.6s infinite;transform-box:fill-box;transform-origin:center}
+.hof .n3{animation:hpop 3.6s ease-in-out 0.9s infinite;transform-box:fill-box;transform-origin:center}
+@keyframes htw{0%,100%{transform:scale(.4) rotate(0);opacity:.3}50%{transform:scale(1.1) rotate(45deg);opacity:1}}
+@keyframes hcup{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes hpop{0%,100%{transform:scale(1)}10%{transform:scale(1.1)}20%{transform:scale(1)}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<g class="hof">
+<rect x="14" y="14" width="1188" height="224" fill="#15121a"/>
+<rect x="4" y="4" width="1188" height="224" fill="#fff4dc"/>
+<rect x="4" y="4" width="1188" height="224" fill="url(#hof-dots)"/>
+
+<g transform="translate(130 120)"><g class="cup">
+<path d="M-58 -64 H58 V-30 Q58 14 0 22 Q-58 14 -58 -30 Z" fill="#ffc938" stroke="#15121a" stroke-width="6" stroke-linejoin="round"/>
+<path d="M-58 -50 H-84 Q-84 -8 -50 0 M58 -50 H84 Q84 -8 50 0" fill="none" stroke="#15121a" stroke-width="6" stroke-linecap="round"/>
+<rect x="-12" y="22" width="24" height="28" fill="#ffc938" stroke="#15121a" stroke-width="6"/>
+<rect x="-44" y="50" width="88" height="20" rx="4" fill="#ff5a45" stroke="#15121a" stroke-width="6"/>
+<path d="M-30 -48 V-24" stroke="#fff4dc" stroke-width="7" stroke-linecap="round"/>
+</g></g>
+<g transform="translate(232 64)"><path class="tw1" d="M0 -20 Q3.5999999999999996 -3.5999999999999996 20 0 Q3.5999999999999996 3.5999999999999996 0 20 Q-3.5999999999999996 3.5999999999999996 -20 0 Q-3.5999999999999996 -3.5999999999999996 0 -20 Z" fill="#ffc938" stroke="#15121a" stroke-width="3" stroke-linejoin="round"/></g><g transform="translate(62 76)"><path class="tw2" d="M0 -14 Q2.52 -2.52 14 0 Q2.52 2.52 0 14 Q-2.52 2.52 -14 0 Q-2.52 -2.52 0 -14 Z" fill="#ffc938" stroke="#15121a" stroke-width="3" stroke-linejoin="round"/></g><g transform="translate(212 170)"><path class="tw3" d="M0 -12 Q2.16 -2.16 12 0 Q2.16 2.16 0 12 Q-2.16 2.16 -12 0 Q-2.16 -2.16 0 -12 Z" fill="#ffc938" stroke="#15121a" stroke-width="3" stroke-linejoin="round"/></g>
+<text class="b" x="290" y="86" font-size="52" fill="#15121a">Hall of Fame</text>
+<text x="292" y="126" font-size="20" font-weight="700" fill="#15121a">Games we love that bend a rule: long matches, desktop-only, or a paid host.</text>
+<g class="n0"><rect x="297" y="153" width="255" height="46" rx="14" fill="#15121a"/><rect x="292" y="148" width="255" height="46" rx="14" fill="#4cc9f0" stroke="#15121a" stroke-width="4" /><text x="419.5" y="178" text-anchor="middle" font-size="17" font-weight="800" fill="#15121a" textLength="219" lengthAdjust="spacingAndGlyphs">Blood on the Clocktower</text></g>
+<g class="n1"><rect x="566" y="153" width="160" height="46" rx="14" fill="#15121a"/><rect x="561" y="148" width="160" height="46" rx="14" fill="#3ddc97" stroke="#15121a" stroke-width="4" /><text x="641" y="178" text-anchor="middle" font-size="17" font-weight="800" fill="#15121a" textLength="124" lengthAdjust="spacingAndGlyphs">Jackbox Games</text></g>
+<g class="n2"><rect x="740" y="153" width="96" height="46" rx="14" fill="#15121a"/><rect x="735" y="148" width="96" height="46" rx="14" fill="#ff8fc7" stroke="#15121a" stroke-width="4" /><text x="783" y="178" text-anchor="middle" font-size="17" font-weight="800" fill="#15121a" textLength="38" lengthAdjust="spacingAndGlyphs">osu!</text></g>
+<g class="n3"><rect x="850" y="153" width="293" height="46" rx="14" fill="#15121a"/><rect x="845" y="148" width="293" height="46" rx="14" fill="#9b6bff" stroke="#15121a" stroke-width="4" /><text x="991.5" y="178" text-anchor="middle" font-size="17" font-weight="800" fill="#15121a" textLength="257" lengthAdjust="spacingAndGlyphs">Red Alert 2 · Chrono Divide</text></g>
+<rect x="4" y="4" width="1188" height="224" fill="none" stroke="#15121a" stroke-width="6"/>
+</g>
+</svg>

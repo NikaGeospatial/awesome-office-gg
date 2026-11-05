@@ -241,7 +241,7 @@ Requires **Node 22+**.
 
 ```bash
 npm install
-npm run dev        # http://localhost:4321/awesome-office-gg/
+npm run dev        # http://localhost:4321/
 npm run validate   # validate every data/games/*.json
 npm test           # unit tests (schema rules, loader, formatting, JSON-schema freshness)
 npm run typecheck
