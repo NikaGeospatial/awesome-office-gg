@@ -46,7 +46,7 @@ and a game that passes everything must not be. CI enforces this.
 npm run validate     # schema + criteria for every game file
 npm test             # unit tests
 npm run build        # static build to dist/
-npm run dev          # local site at http://localhost:4321/awesome-office-gg/
+npm run dev          # local site at http://localhost:4321/
 npm run schema       # regenerate data/games.schema.json (only if you changed src/lib/schema.ts)
 npm run check:links  # check every game's URL (writes link-report.md)
 ```
