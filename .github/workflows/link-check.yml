@@ -1,53 +1,140 @@
-name: Weekly link check
+name: Monthly link check
 
+# On the 1st of every month: check every game page and hotlinked image.
+#  - dead page      -> a fix branch (bot/link-check) that marks the game "closed"
+#  - broken image   -> the same branch removes the image (the card falls back to a tile)
+#  - moved to a different site -> an issue (a person must decide: rename, sale or hijack)
+# The fix branch becomes a pull request automatically when the organisation allows Actions to create PRs;
+# otherwise an issue with a one-click "open the PR" link is created instead.
+# Nothing is merged automatically: branch protection requires the "validate" check and a maintainer approval.
 on:
   schedule:
-    - cron: "17 3 * * 1" # Mondays 03:17 UTC
+    - cron: "23 4 1 * *"
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Report only: do not push a branch, open a PR or an issue"
+        type: boolean
+        default: false
+      base:
+        description: "Branch the fix targets (default: the default branch)"
+        type: string
+        default: ""
 
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
   issues: write
+  actions: write # to start CI on the bot branch (pushes by GITHUB_TOKEN do not trigger it)
+
+concurrency:
+  group: link-check
+  cancel-in-progress: false
 
 jobs:
   links:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      BASE: ${{ inputs.base || github.event.repository.default_branch }}
+      DRY_RUN: ${{ inputs.dry_run && 'true' || 'false' }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
-          persist-credentials: false
+          ref: ${{ env.BASE }}
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 22
           cache: npm
       - run: npm ci
-      - id: check
+
+      - name: Check pages and images
+        id: check
         run: npm run check:links
         continue-on-error: true
-      - name: Open, update or close the link-rot issue
+
+      - name: Apply fixes to data/games
+        id: fix
+        run: |
+          npm run apply-fixes
+          if git status --porcelain data/games | grep -q .; then echo "changed=true" >> "$GITHUB_OUTPUT"; else echo "changed=false" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Re-validate the edited data
+        if: steps.fix.outputs.changed == 'true'
+        run: npm run validate
+
+      - name: Show the proposed fix
+        if: steps.fix.outputs.changed == 'true'
+        run: |
+          git --no-pager diff --stat
+          cat fix-summary.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Push the fix branch and open a pull request
+        id: pr
+        if: steps.fix.outputs.changed == 'true' && env.DRY_RUN != 'true'
+        run: |
+          branch="bot/link-check"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add data/games
+          git commit -q -m "Fix broken links found by the monthly check" -m "Opened automatically by the Monthly link check workflow. See the pull request description for what changed and why."
+          git push --force origin "$branch"
+          # A branch pushed with GITHUB_TOKEN does not start the normal CI run, and "validate" is a required check.
+          gh workflow run ci.yml --ref "$branch"
+          existing=$(gh pr list --head "$branch" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh pr edit "$existing" --body-file fix-summary.md
+            echo "state=pr" >> "$GITHUB_OUTPUT"
+          elif gh pr create --base "$BASE" --head "$branch" --title "Fix broken links found by the monthly check" --body-file fix-summary.md --label link-rot; then
+            echo "state=pr" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice::Could not open the PR (the organisation may not allow Actions to create pull requests). Opening an issue with a link instead."
+            echo "state=branch-only" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open, update or close the link-rot issues
+        if: always() && env.DRY_RUN != 'true' && steps.check.outcome != 'skipped'
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         env:
-          FAILED: ${{ steps.check.outcome == 'failure' }}
+          PR_STATE: ${{ steps.pr.outputs.state }}
         with:
           script: |
             const fs = require('fs');
-            const report = fs.readFileSync('link-report.md', 'utf8');
-            const failed = process.env.FAILED === 'true';
-            const title = 'Weekly link check: dead or moved links';
+            const report = JSON.parse(fs.readFileSync('link-report.json', 'utf8'));
+            const base = process.env.BASE;
             const { data: open } = await github.rest.issues.listForRepo({
-              ...context.repo, state: 'open', labels: 'link-rot', per_page: 10,
+              ...context.repo, state: 'open', labels: 'link-rot', per_page: 30,
             });
-            const existing = open.find((i) => i.title === title);
-            if (failed) {
-              if (existing) {
-                await github.rest.issues.update({ ...context.repo, issue_number: existing.number, body: report });
-              } else {
-                await github.rest.issues.create({ ...context.repo, title, labels: ['link-rot'], body: report });
+            // Create/update the issue when there is something to say, otherwise close it.
+            async function sync(title, body) {
+              const existing = open.find((i) => i.title === title);
+              if (body) {
+                if (existing) await github.rest.issues.update({ ...context.repo, issue_number: existing.number, body });
+                else await github.rest.issues.create({ ...context.repo, title, labels: ['link-rot'], body });
+              } else if (existing) {
+                await github.rest.issues.createComment({ ...context.repo, issue_number: existing.number, body: 'Resolved. Closing.' });
+                await github.rest.issues.update({ ...context.repo, issue_number: existing.number, state: 'closed' });
               }
-            } else if (existing) {
-              await github.rest.issues.createComment({
-                ...context.repo, issue_number: existing.number, body: 'All links are healthy again. Closing.',
-              });
-              await github.rest.issues.update({ ...context.repo, issue_number: existing.number, state: 'closed' });
             }
+
+            // 1. Sites that moved: a person decides.
+            let moved = null;
+            if (report.moved.length) {
+              const rows = report.moved.map((m) => '- `' + m.id + '`: ' + m.detail + ' (' + m.url + ')').join('\n');
+              moved = 'These games now redirect to a different site (renamed, sold, or hijacked). Open each one and decide: update `url`, or mark it `closed`.\n\n' + rows + '\n';
+            }
+            await sync('Monthly link check: sites that moved', moved);
+
+            // 2. Fix branch pushed but no PR could be opened automatically.
+            let fix = null;
+            if (process.env.PR_STATE === 'branch-only') {
+              const compare = 'https://github.com/' + context.repo.owner + '/' + context.repo.repo + '/compare/' + base + '...bot/link-check?expand=1&title=' + encodeURIComponent('Fix broken links found by the monthly check') + '&labels=link-rot';
+              fix = '**[Open the pull request](' + compare + ')** (the branch `bot/link-check` is already pushed and CI has been started on it).\n\n' + fs.readFileSync('fix-summary.md', 'utf8');
+            }
+            await sync('Monthly link check: fixes ready, open the pull request', fix);
+
+      - name: Report
+        if: always()
+        run: cat link-report.md >> "$GITHUB_STEP_SUMMARY" || true

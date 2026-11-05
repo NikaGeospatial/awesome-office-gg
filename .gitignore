@@ -7,3 +7,5 @@ dist/
 .env.*
 link-report.md
 coverage/
+link-report.json
+fix-summary.md

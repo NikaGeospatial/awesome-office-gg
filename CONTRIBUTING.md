@@ -204,14 +204,33 @@ This list is shown at work, so it must be safe for work.
 
 ## Fixing dead games
 
-A scheduled workflow checks every link weekly and opens an issue if one is dead or redirects to a different site
-(it is a *report*; it never edits files). To handle one:
+A scheduled workflow runs on the **1st of every month** (and on demand from the Actions tab). It checks every game
+page and every hotlinked image, then:
 
-1. Open the URL yourself.
-2. Really gone, or hijacked / parked / now spam? Open a PR setting `"status": "closed"` and note what you found.
-   Closed games stay in the list greyed-out (for history); maintainers prune them occasionally.
-3. Moved to a new address? Update `url` (and `image` if it changed) and confirm it's the same game.
-4. Works fine, just blocks bots? Do nothing and comment on the issue.
+| It finds | It does |
+| -------- | ------- |
+| A **dead page** (404/410, 5xx, DNS or TLS failure, or a timeout after 3 tries) | Opens **one pull request** (`bot/link-check`) setting `"status": "closed"` |
+| A **broken image** (error, or not actually an image) | Removes `image` / `logo` in that same PR; the card falls back to a coloured tile |
+| A site that **redirects to a different domain** | Opens an issue, because it may be a rename, a sale or a hijack. It never auto-fixes these |
+| **Bot protection** (403/429, Cloudflare "Just a moment…") | Ignores it: those games can't be checked by a script |
+
+It never merges anything. Branch protection still requires the `validate` check and a maintainer approval.
+
+> **Maintainers:** GitHub lets an organisation forbid Actions from opening pull requests. If that is the case here,
+> the bot still pushes `bot/link-check` and starts CI on it, then opens an issue titled *"fixes ready, open the pull
+> request"* with a one-click link. Turning on *Settings → Actions → General → "Allow GitHub Actions to create and
+> approve pull requests"* (organisation, then this repository) makes it open the PR itself; no code change needed.
+
+**Reviewing the bot's PR:** a failure can be temporary, so open each URL yourself first.
+
+1. Really gone, or hijacked / parked / now spam? Approve and merge. Closed games stay in the list greyed-out (for
+   history); maintainers prune them occasionally.
+2. It works (it just blocks bots)? Close the PR, or drop that change from it.
+3. Moved to a new address? Edit the file: update `url` (and `image` if it changed) and confirm it's the same game.
+4. A removed image has a replacement? Put the game's current official share image back in `image`.
+
+Humans and agents can also send these fixes by hand with the same rules. To rehearse locally:
+`npm run check:links && npm run apply-fixes && npm run validate` (then `git diff`).
 
 If you own a listed game and want it changed or removed, use the
 [update/removal issue form](https://github.com/NikaGeospatial/awesome-office-gg/issues/new?template=remove-or-update.yml). We respond quickly and honour reasonable requests.
@@ -229,7 +248,8 @@ npm run typecheck
 npm run build      # production build into dist/
 npm run check      # all of the above
 npm run schema     # regenerate data/games.schema.json after editing src/lib/schema.ts
-npm run check:links  # run the weekly link checker locally (writes link-report.md)
+npm run check:links  # run the monthly link checker locally (writes link-report.md / .json)
+npm run apply-fixes  # apply link-report.json to data/games (what the monthly bot does)
 ```
 
 Project layout:
@@ -242,7 +262,7 @@ src/lib/games.ts       loader/validator (reads data/games)
 src/pages/index.astro  the page; src/components/GameCard.astro the card
 src/scripts/filters.ts client-side filtering and the "suggest" link builder
 scripts/               validate, link checker, schema generator
-.github/               CI, Pages deploy, weekly link check, issue/PR templates
+.github/               CI, Pages deploy, monthly link check, issue/PR templates
 ```
 
 Changing the schema, categories, workflows or site design: open an issue or draft PR first so we can agree the

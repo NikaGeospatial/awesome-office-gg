@@ -36,7 +36,8 @@ passes, and whether a private room is available. There's a **team size** filter:
 - **Astro** static site, built from `data/games/*.json` and deployed to **GitHub Pages** on every push to `main`.
 - A **Zod schema** (`src/lib/schema.ts`) validates every game *and* enforces the criteria, so a PR that puts a game
   in the wrong place fails CI.
-- A **weekly link check** opens an issue when a game is dead or has moved to a different site.
+- A **monthly link check** tests every game page and hotlinked image. Dead pages and broken images are fixed in one
+  automatically opened pull request (a maintainer reviews it); sites that moved to a different domain get an issue.
 - No backend, no analytics, no accounts. Artwork is hotlinked from each game's own official share image; nothing
   third-party is stored in this repo.
 
