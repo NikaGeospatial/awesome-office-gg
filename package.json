@@ -23,7 +23,7 @@
     "astro": "6.4.8"
   },
   "devDependencies": {
-    "@types/node": "^22.0.0",
+    "@types/node": "^26.6.6",
     "tsx": "4.23.15",
     "typescript": "5.9.3",
     "vitest": "5.1.0",
