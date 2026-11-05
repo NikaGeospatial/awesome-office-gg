@@ -3,8 +3,8 @@
  *
  * Classifies every non-closed game's URL as:
  *   ok       reachable (2xx, after redirects)
- *   moved    reachable, but the final host is a different site than the one we list
- *            (renamed, sold, or hijacked: always worth a human look)
+ *   moved    reachable, but redirects to a different site (not just a www/subdomain change):
+ *            renamed, sold, or hijacked, so always worth a human look
  *   blocked  401/403/429: bot protection. Not counted as dead, because many
  *            Cloudflare-protected games would otherwise false-alarm every week
  *   dead     404/410, 5xx, DNS/TLS failure or timeout (after retries)
@@ -14,11 +14,11 @@
  */
 import { writeFileSync } from "node:fs";
 import { loadGames } from "../src/lib/games";
+import { sameSite } from "../src/lib/url";
 
 type Result = { id: string; url: string; kind: "ok" | "moved" | "blocked" | "dead"; detail: string };
 
 const UA = "awesome-office-gg-linkcheck (+https://github.com/NikaGeospatial/awesome-office-gg)";
-const bare = (h: string) => h.replace(/^www\./, "").toLowerCase();
 
 async function probe(url: string): Promise<{ status: number; finalUrl: string } | { error: string }> {
   for (let attempt = 1; attempt <= 3; attempt++) {
@@ -46,7 +46,7 @@ async function check(id: string, url: string): Promise<Result> {
   if (r.status >= 400) return { id, url, kind: "dead", detail: `HTTP ${r.status}` };
   const from = new URL(url).hostname;
   const to = new URL(r.finalUrl).hostname;
-  if (bare(from) !== bare(to)) return { id, url, kind: "moved", detail: `now redirects to ${r.finalUrl}` };
+  if (!sameSite(from, to)) return { id, url, kind: "moved", detail: `now redirects to ${r.finalUrl}` };
   return { id, url, kind: "ok", detail: `HTTP ${r.status}` };
 }
 
