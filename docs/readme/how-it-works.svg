@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 262" width="1200" height="262" role="img" aria-labelledby="flow-t flow-d">
+<title id="flow-t">How a game hour works</title>
+<desc id="flow-d">Pick a game, share the room link, play for an hour.</desc>
+<defs>
+<pattern id="flow-dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#15121a" opacity=".14"/></pattern>
+<clipPath id="flow-clip"><rect x="4" y="4" width="1188" height="250"/></clipPath>
+</defs>
+<style>
+.flow text{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif}
+.flow .b{font-family:'Arial Black','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:900}
+.flow .m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+
+.flow .dash{stroke-dasharray:14 12;animation:fdash 1.2s linear infinite}
+.flow .s1{animation:fbob 3.2s ease-in-out infinite}
+.flow .s2{animation:fbob 3.2s ease-in-out -1s infinite}
+.flow .s3{animation:fbob 3.2s ease-in-out -2s infinite}
+@keyframes fdash{to{stroke-dashoffset:-26}}
+@keyframes fbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<g class="flow">
+<rect x="14" y="14" width="1188" height="250" fill="#15121a"/>
+<rect x="4" y="4" width="1188" height="250" fill="#fff4dc"/>
+<rect x="4" y="4" width="1188" height="250" fill="url(#flow-dots)"/>
+
+<path class="dash" d="M372 126 H430" stroke="#15121a" stroke-width="6" fill="none"/>
+<path class="dash" d="M764 126 H822" stroke="#15121a" stroke-width="6" fill="none"/>
+<path d="M422 112 L440 126 L422 140 Z" fill="#15121a"/><path d="M814 112 L832 126 L814 140 Z" fill="#15121a"/>
+<g class="s1"><rect x="45" y="55" width="330" height="150" rx="14" fill="#15121a"/><rect x="40" y="50" width="330" height="150" rx="14" fill="#ffc938" stroke="#15121a" stroke-width="4" /><circle cx="86" cy="96" r="26" fill="#fff4dc" stroke="#15121a" stroke-width="4"/><text class="b" x="86" y="106" text-anchor="middle" font-size="28" fill="#15121a">1</text><text class="b" x="130" y="106" font-size="24" fill="#15121a">Pick a game</text><text x="68" y="164" font-size="19" font-weight="700" fill="#15121a" textLength="274" lengthAdjust="spacingAndGlyphs">Filter by genre or team size.</text></g>
+<g class="s2"><rect x="437" y="55" width="330" height="150" rx="14" fill="#15121a"/><rect x="432" y="50" width="330" height="150" rx="14" fill="#4cc9f0" stroke="#15121a" stroke-width="4" /><circle cx="478" cy="96" r="26" fill="#fff4dc" stroke="#15121a" stroke-width="4"/><text class="b" x="478" y="106" text-anchor="middle" font-size="28" fill="#15121a">2</text><text class="b" x="522" y="106" font-size="24" fill="#15121a" textLength="216" lengthAdjust="spacingAndGlyphs">Share the room</text><text x="460" y="164" font-size="19" font-weight="700" fill="#15121a" textLength="274" lengthAdjust="spacingAndGlyphs">Send the link to the team.</text></g>
+<g class="s3"><rect x="829" y="55" width="330" height="150" rx="14" fill="#15121a"/><rect x="824" y="50" width="330" height="150" rx="14" fill="#3ddc97" stroke="#15121a" stroke-width="4" /><circle cx="870" cy="96" r="26" fill="#fff4dc" stroke="#15121a" stroke-width="4"/><text class="b" x="870" y="106" text-anchor="middle" font-size="28" fill="#15121a">3</text><text class="b" x="914" y="106" font-size="24" fill="#15121a" textLength="216" lengthAdjust="spacingAndGlyphs">Play for an hour</text><text x="852" y="164" font-size="19" font-weight="700" fill="#15121a" textLength="274" lengthAdjust="spacingAndGlyphs">Short rounds, quick rules.</text></g>
+<circle r="9" fill="#ff5a45" stroke="#15121a" stroke-width="3"><animateMotion dur="5s" repeatCount="indefinite" path="M60 232 H1136"/></circle>
+<path d="M60 232 H1136" stroke="#15121a" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round" opacity=".5" fill="none"/>
+<rect x="4" y="4" width="1188" height="250" fill="none" stroke="#15121a" stroke-width="6"/>
+</g>
+</svg>
