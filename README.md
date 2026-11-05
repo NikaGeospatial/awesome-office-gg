@@ -3,7 +3,7 @@
 **Games your team can play in one hour.** A hand-picked, open-source list of free online games for office game
 hours: open a link, share the room, start playing.
 
-**→ https://nikageospatial.github.io/awesome-office-gg/**
+**→ https://officegamehour.com/**
 
 It started as a weekly one-hour Wednesday game session and a recurring problem: *we ran out of games.* So
 we wrote down the ones that worked, and opened the list up to everyone.
@@ -42,7 +42,7 @@ passes, and whether a private room is available. There's a **team size** filter:
 
 ```bash
 npm install
-npm run dev        # http://localhost:4321/awesome-office-gg/
+npm run dev        # http://localhost:4321/
 npm run check      # validate + typecheck + tests + build
 ```
 
